@@ -1,0 +1,14 @@
+(206583)  85-10-15  11:15  Arvid Vollsnes
+Subject:  ROBOT
+Ungene har oppdaget en lus i programmet ditt.
+Om du trykker p} BRYT etter } ha f}tt opp
+en liste over oppdatering av besteresultat,
+konfigureres programmet p} ny p} en eller
+annen m}te. Da kan du overhodet ikke
+kj|re forbi niv} 1. Etter suksessfull
+kj|ring av niv} 1, f}r du igjen listen
+over toppresultatene, og s} tilbake til KPM.
+Jeg oppdaget ogs} at KOPI p} TIKI ikke ga en riktig
+kopi, jeg m}tte kj|re SWEEP med "verify".
+
+(206583)  (comment in 206990)

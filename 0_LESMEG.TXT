@@ -1,0 +1,502 @@
+                         ROBOT VER. 2.8
+                         ==============
+
+
+IMPLEMENTASJON:
+---------------
+
+Denne  utgaven av "ROBOT" kan fritt gis videre til andre,  forut-
+satt  at  program  og denne filen med  dokumentasjon  overleveres
+uendret.
+
+
+HISTORIE OG IDEER:
+------------------
+
+Allen R. Black, Strathclyde University skrev den f|rste ROBOT for
+Unix i C.  Denne ble siden modifisert av Stephen J. Muir og Chuck
+McManis  for andre versjoner av Unix.  Foreliggende versjon er en
+re-implementsjon  i Turbo-Pascal for Tiki-100 av Gisle Hannemyr.
+
+F|lgende folk har kommet med ideer underveis:
+
+   * Jim Hester: "Vanlig" teleport opsjon.
+   * Bj|rn Kirkerud: Maksimering av score.
+   * Bryan R. Davies/Jens Thomassen: Superzap.
+   * Otto Milvang: Sjekk for skrivebeskyttet disk.
+
+En spesiell takk  til  Willy Verwoerd  for  gode  ideer  og flere
+forslag til forbedringer. Han fant og rapporterte dessuten en god
+del av buggene i de f|rste versjonene. De som fortsatt m}tte v{re
+igjen, er mine egne.
+
+
+LISENS
+------
+
+Robot for Tiki-100 lisensieres under "The MIT/Expat License".  Se
+LICENSE.TXT for detaljer.
+
+
+SCENARIO:
+---------
+
+De  fleste kjenner bare bakgrunnen fra en reportasje i  ukebladet
+Hjemmet under tittelen "Alle mine Roboter".  Den fortalte hvordan
+den  kjente for- og etterord-forfatteren Isaac Asimov i sin  bak-
+hage hadde etablert et fristed for utrangerte roboter.  Der kunne
+roboter med sviktende RAM-test,  roboter som beregnet den matema-
+tiske  konstanten pi etter Indiana-reglene av 1897,  roboter  med
+operativ-systemet SINTRAN-III, eller roboter som av andre grunner
+var  komplett ubrukelige,  fritt oppholde seg og gj|re de tingene
+roboter gj|r n}r de ikke gj|r noe spesielt.  Artikkelen var  led-
+saget av et sakkarinaktig fotografi hvor den gode doktor sitter i
+en  gyngestol  p}  terrassen og leser h|yt for robotene  fra  sin
+siste antologi: "The Early Asimov Rejection Slips, Vol. 9".
+
+I  virkeligheten  var situasjonen alt da i ferd med } gli  ut  av
+kontroll.  Maskinene,  i likhet med resten av verden,  hadde for-
+lengst g}tt tr|tt av doktorens ordrikhet.  Og i enda h|yere  grad
+hadde  de  g}tt tr|tt av Asimovs innblanding i  roboters  interne
+aff{rer.  "Med hvilken rett",  insinuerte enkelte av dem,  "lager
+mannen  egne  asimovske  robot-lover?".  Idyllen  var  brutt,  og
+allerede f|r Hjemmet-reportasjen forel} i kioskene var stemningen
+mellom  robotene  og Asimov amper.  Den ble ikke bedre av  at  en
+gruppe  roboter  tok  seg inn i huset og forgrep seg  p}  Asimovs
+samling  av historiske hullkort.  Hullkort virker som  hallucino-
+gener for de fleste kybernetiske mekanismer.  De farligste kommer
+fra  det  s}kalte "bl}  triangel"  (Armonk,  Poughkeepsie,  White
+Plains) i staten New York, U.S.A., og f}r misbrukere til } tro at
+den virkelige verden(1) ikke er noe annet enn en bug(2) i  OS/360
+og  f|lgelig b|r dikes(3) ut.  Hva som siden skjedde er det ingen
+som fullt ut forst}r,  men de virker som roboter p}virket av JCL-
+giften  koblet seg opp mot Asimovs  tekst-behandlings-maskin,  og
+ledsaget   av   ekstatiske  utrop  som   "Feilplassert   komma!",
+"Manglende kontrollkort" og "ABEND: EJ5#X%7Z" slettet de samtlige
+av forfatterens tekster.
+
+Asimov mener selv at over tre-hundre upubliserte b|ker gikk  tapt
+den  natten.  "De skulle sikre min alderdom",  uttaler en s|nder-
+knust Isaac Asimov til pressen:  "Verden vil aldri f} oppleve  de
+siste }tte bindene i ``Foundation-dodekalogien''. Hvilket tap for
+litteraturen!"
+
+Men dette er bare begynnelsen.  Frenetiske roboter begynner snart
+} tapetsere all ledig veggplass med "THINK!" plakater, og noen av
+de  ivrigste drar ut kontaktene p} lamper og elektriske apparater
+mens de hyler: "Pluggkompatibelt er ikke kompatibelt!". Til slutt
+angriper de mennesker:  Forsvarsl|se individer blir holdt fast av
+et  aggressivt korps av selger-roboter til de betaler 25  prosent
+av det de m}tte ha av penger for en "service-avtale".  "Vi |nsker
+bare  }  sikre v}re kunder den best mulige  beskyttelse"  uttaler
+robot-bossen,  som  for  pengene  kj|per  seg  stripet  dress  og
+borsalino-hatt.
+
+Det  blir til slutt et folkekrav at noen ordner opp i  den  posi-
+tronske  plagen.  Uvisst  av  hvilken grunn,  blir du  leiet  for
+jobben. For ikke } m|te uforberedt opps|ker du "Kristiania Rotte-
+og  Robotbureau".  Byr}et er kjent for et godt utvalg av  moderne
+utstyr  for robot-bekjempelse,  og du ender opp med  en  "Starter
+Pack"  best}ende av en t-skjorte med p}trykt  tekst:  "Autorisert
+robot-bekjemper",  en "Japper Deluxe-super-zapper" i trendy rosa,
+og  "Alle  Hjems  Teleport-maskin" i  slagfast  hammerplast.  Vel
+hjemme  oppdager du det som st}r med sm} typer:  "Batterier  ikke
+inkludert".  Dr.  Asimov er imidlertid vennlig nok til } l}ne deg
+ett batteri,  og mumler noe om at dersom du tar godt vare p} det,
+skal han fors|ke } skaffe flere.
+
+________________________
+(1) VIRKELIGE VERDEN: s.  1) Vanlig betegnelse (ofte nedsettende)
+    blant  programmerere p} et univers hvor folk bruker dress  og
+    slips og jobber fra }tte til fire.  2) Et sted hvor mennesker
+    ikke  er programmerere,  og aktiviteter ikke er relatert  til
+    programmering.  3)  Hvor  som  helst  utenfor  universitetet:
+    "Stakkars fyr,  han har sagt opp jobben i  mikromaskin-gruppa
+    og begynt } arbeide i den virkelige verden."
+
+(2) BUG: s.  U|nsket  og  utilsiktet  egenskap i  et  datasystem.
+    Etymologien er omstridt. Kommand|r-kaptein Grace Hopper mener
+    uttrykket  kan spores tilbake til et insekt (eng.  "bug") som
+    en  dag  i  1946  stoppet ENIAC-1  ved  }  komme  inn  mellom
+    maskinens elektriske kontakter.  Historien er beviselig sann:
+    det  ulykkelige  dyret er klistret inn i maskins loggbok  for
+    den  aktuelle dagen og beskrevet som "A bug in the  machine";
+    men  en fraksjon under ledelse av hakker Guy Steele viser til
+    at Edison allerede i 1870 hadde som favoritt-uttrykk:  "Well,
+    boys,  now let's find the bugs"  (G. G. Bryan: Edison, 1926),
+    og  at b}de Spenser (Faerie Queen) og Shakespeare (Henry  IV)
+    brukte ordet som en betegnelse p} u|nskede og ofte skremmende
+    makter.
+
+(3) DIKE: v.  }  fjerne  eller  sette ut av drift en  del  av  et
+    program. Ordet stammer fra en kraftig diagonaltang, som blant
+    mekanikere g}r under betegnelsen "dike".  Blant programmerere
+    brukes  det  i  overf|rt betydning p} } "klippe  bort"  ikke-
+    fysiske objekter.
+
+
+BESKRIVELSE:
+------------
+
+Form}let  med  spillet er } uskadeliggj|re flest  mulig  roboter,
+samtidig  som du m} unng} } bli fanget av  dem.  Dr.  Asimov  vil
+betale  deg  et  bestemt bel|p for hver robot du klarer  }  gj|re
+immobil,  slik  at den ikke klarer } bryte seg inn  i  hollerith-
+samlingen hans og misbruke JCL igjen.
+
+Hver  gang  du gj|r et trekk,  vil samtlige roboter du  ikke  har
+klart } stoppe,  g} ett skritt rett mot deg, og i det |yeblikk en
+robot r|rer ved deg,  m} du kj|pe service-kontrakt. Det avslutter
+spillet,  og  koster deg 25% av de kronene du har tjent.  Du  kan
+imidlertid n}r som helst si opp og overlate robot-jakt jobben til
+en annen. Da vil du avslutte med hele ditt honorar i behold.
+
+Som  man kunne vente med OS/360,  er ikke robotene s{rlig  intel-
+ligente.  De robotene som befinner seg i samme kolonne eller  rad
+som deg, vil bevege seg langs den rette linja mellom deres og din
+posisjon p} brettet.  Alle andre roboter vil bevege seg langs den
+korteste  45 graders linja som g}r mellom robotens posisjon og en
+av  de  to perpendikul{re linjene som g}r gjennom  din  posisjon.
+Selv om dette h|res sv{rt innviklet ut, s} er det langt enklere i
+praksis.  Etter  et  par innledende spill skulle du ikke  ha  noe
+problem med } kunne forutsi hvordan robotene beveger seg.
+
+Robotene fors|ker ikke } unng} hindringer.  Dette kan du utnytte:
+Dersom to roboter kolliderer med hverandre,  blir begge  |delagt.
+Disse  skraphaugene  kan du deretter bruke for } hindre  robotene
+ytterligere:  En robot som g}r rett inn i en skraphaug ender selv
+som vrak.
+
+Du er representert p} skjermen med et ansikt.  Robotene ser  for-
+h}pentligvis  ut som roboter,  og skraphaugene er sm} haugformede
+symboler.
+
+Nederst  p} skjermen finner du en rekke tall.  F. eks. kan  denne
+linja se slik ut:
+_________________________________________________________________
+9       196(244)       3+1                   16(1)            718
+
+Se i f|rste omgang bort fra tallene i parentes. Tallet lengst til
+venstre er niv} i spillet,  og det neste tallet er antall roboter
+du m|ter p} dette niv}et.  Deretter f|lger en sum som angir  hvor
+mange "batterier" (se TAKTIKK OG STRATEGI nedenfor) du har igjen.
+Det  f|rste  tallet angir nye batterier som du f}r  tildelt  hver
+gang du g}r opp et niv} (max.  3).  Det andre tallet er batterier
+spart fra lavere niv}er.
+
+Til  h|yre finner du to grupper.  Den f|rste er det antall kroner
+Isaac  Asimov er villig til } betale for hver robot du  klarer  }
+|delegge.  Tallet  helt  ute i h|yre marg angir hvor mye  du  har
+tjent  hittil.  Dersom  du har fargeskjerm,  vil du se  at  dette
+tallet  er  gr|nt s} lenge du har tjent mindre penger enn  de  ti
+beste resultatene; bl}tt n}r du vil klare } plassere deg blant de
+ti beste,  og r|dt n}r du passerer den eksisterende rekorden.  Du
+finner de samme fargekodene igjen i ti p} topp listen.
+
+Som du ser, er to av tallene etterfulgt av tall i parentes. Dette
+er  henholdsvis  antall  roboter du vil m|te p}  neste  niv},  og
+antall  kroner hver |delagt robot p} neste niv} vil  v{re  verdt.
+Disse  tallene vil endre seg gjennom runden,  avhengig av hvordan
+du  maksimerer  score (se avsnitt v.  under TAKTIKK  OG  STRATEGI
+nedenfor).
+
+
+KOMMANDOER:
+-----------
+
+Du starter ROBOT ved } gi kommandoen
+
+   a>>ROBOT
+
+til TIKO.  Disketten m} ikke v{re skrivebeskyttet, og det m} v{re
+minst 2K ledig plass. F|rste gang du kj|rer programmet, vil du f}
+en del sp|rsm}l som installerer det for ditt system.  Seinere vil
+du komme rett inn i spillet.
+
+Noen  av  sp|rsm}lene du f}r ved installasjon kan trenge  n{rmere
+forklaring:
+
+* Unike navn i scorelista?
+  ROBOT  vedlikeholder en liste over de 10 beste resultatene  som
+  er oppn}dd.   Dersom du avslutter med F11 eller blir fanget  p}
+  niv} to eller h|yere, og har h|y nok poengsum, vil du bli spurt
+  om navnet ditt for plassering p} denne lista.  Svarer du "N" p}
+  sp|rsm}let om unike navn, kan samme navn forekomme flere ganger
+  p}  lista.   Standardsvaret  ("J") vil f|re til at navnet  ditt
+  blir flyttet opp p} en h|yere plass n}r du setter ny  personlig
+  rekord, og at lista ellers forblir ur|rt.
+
+* Skal "typeahead" kastes?
+  Dersom du trykker p} en serie taster mens ROBOT er opptatt  med
+  andre  ting,  s}  vil spillet,  dersom du svarer "N"  p}  dette
+  sp|rsm}let,  huske  alle  disse tastetrykkene og utf|re dem  s}
+  snart det f}r anledning.   Standardsvaret ("J") vil kaste  alle
+  slike lagrede tastetrykk, bortsett fra det siste.
+
+Enkelte  monitorer  (spesielt  Taxan  RGB-II) kan  ha  et  d}rlig
+justert bildeomr}de.  ROBOT har en ramme rundt  spilleplanen,  og
+hele denne b|r v{re synlig. Dersom deler av denne ikke er synlig,
+b|r  du justere monitoren din.  Instruksjoner finner du i  bruks-
+anvisningen for monitoren.
+
+Dersom du bruker ROBOT med lyd, kan det hende at det er n|dvendig
+}  justere  lydniv}et  p}  Tiki-100 opp eller ned  for  }  f}  en
+behagelig lyd. Du kan gj|re dette ved } trykke p} CTRL+F5. Tikien
+vil  da  begynne } ule,  og du kan med et lite  skrujern  justere
+volumkontrollen p} baksiden til et passende niv}.  En hvilken som
+helst tast vil stoppe ulingen.
+
+Du  bruker  de 9 piltastene for } flytte.  De fire  vanlige  pil-
+tastene  er for } flytte henholdsvis mot venstre,  h|yre,  opp og
+ned.  "Hjem"-tasten  (i  midten) brukes dersom du  |nsker  }  st}
+stille  et trekk,  og "bla"- og "tab"-tastene (i hj|rnene) brukes
+for diagonale trekk.
+
+For|vrig finnes f|lgende kommandoer:
+
+   HJELP:  Kort brukerveiledning.
+   F1:     Sikker teleport: Hopp til et sikkert sted.
+   F2:     Vanlig teleport: Hopp til et annet sted (p} niv} > 4).
+   F3:     Super-zap: Zap alt rundt deg.
+   F10:    Frisk opp skjermen.
+   F11:    Avslutt med alle pengene i behold.
+   F12:    Siste skanse: Sitt rolig resten av runden.
+   UTVID:  Vis de ti beste poengsummene.
+   SLETT:  Sl} lydeffektene av eller p}.
+   ANGRE:  Avbryt spillet og start med nytt brett.
+   BRYT:   Avbryt spillet og g} tilbake til TIKO.
+
+NB:  F10 er det samme som SHIFT og F4, F11 det samme som SHIFT+F5
+og F12 er SHIFT+F6.
+
+Dessuten finnes det tre kommandoer du sjelden vil ha bruk for, og
+som derfor ligger p} taster det er vanskelig } trykke p}  ved  en
+tilfeldighet:
+
+   F13 (CTRL+F1): Samsortering av filer med poengsummer.
+   F16 (CTRL+F4): Re-installer ROBOT (velg monitor etc.)
+   F17 (CTRL+F5): Lyd for justering av volum-kontroll.
+
+Det finnes ei liste med de ti beste  resultatene  oppn}dd.  Denne
+lista skrives ut n}r det settes ny rekord, n}r en runde med spill
+avbrytes, og n}r du trykker p} UTVID. Dersom det  er  |nskelig  }
+slette  den  lista,  f.  eks.  fordi   poengsummene   har   blitt
+"usl}elige", eller fordi lilles|steren din har  flere  poeng  enn
+deg selv, kan man slette filen "ROBOT.HSC".
+
+Dersom flere spiller ROBOT samtidig p} forskjellige maskiner, kan
+det v{re at man p} et eller annet tidspunkt  |nsker  }  kombinere
+"ROBOT.HSC"-filer fra forskjellige  disketter,  med  sikte  p}  }
+produsere  en  felles,  samsortert  "ROBOT.HSC"  med  de  h|yeste
+poengsummene fra de  forskjellige  diskene.  Dette  gj|r  du  med
+kommando F13. ROBOT vil be deg putte inn disketter som inneholder
+"ROBOT.HSC"-filer. Hver gang en ny disk  er  klar  som  innlogget
+disk, trykker du p} <RETUR>. N}r er ferdig  med  samtlige  disker
+trykker du p} <BRYT>. ROBOT vil da be deg sette  inn  disken  som
+den samsorterte "ROBOT.HSC" skal skrives p}. Trykk p} <RETUR> n}r
+denne disken er klar.
+
+N}r du setter ny rekord p} niv} to eller h|yere,  blir du bedt om
+} skrive navnet ditt.  Det kan v{re greit } vite at editoren  som
+tar  i  mot tekst fra tastaturet er omtrent den samme som i  pro-
+gram-pakken  BRAGE  (tm).  Legg merke til  at  skrivemerket  st}r
+vertikalt, MELLOM bokstavene.
+
+F|lgende funksjonstaster virker i editoren:
+
+   VENSTREPIL:  G} ett tegn til venstre.
+   H|YREPIL:    G} ett tegn til h|yre.
+   VENSTRE TAB: G} til starten av ordet.
+   H|YRE TAB:   G} til slutten av ordet.
+   UTVID:       Slett tegnet til venstre for skrivemerket.
+   SLETT:       Slett tegnet til h|yre for skrivemerket.
+   RETUR:       Ferdig med } skrive inn streng, retur.
+
+
+TAKTIKK OG STRATEGI:
+--------------------
+
+Det  skal  villig innr|mmes at flaks ikke spiller  en  ubetydelig
+rolle  i  utfallet  av et parti ROBOT.  Men det  som  skiller  en
+"robotmester" fra en middels "robotist" er evnen til } skape,  se
+og utnytte en fordelaktig stilling.  En god spiller f}r ikke bare
+robotene  til  } kollidere;  han eller hun man|vrerer dem  til  }
+kollidere  p} de n|yaktig de stedene hvor skraphaugene kan  gj|re
+mest nytte for seg.
+
+Nedenfor  f|lger  noen tips og forslag til taktikk og strategi  i
+ROBOT:
+
+
+i) Generelt:
+
+I standard ROBOT kan du bruke s} lang tid du vil p} hvert  enkelt
+trekk.  Det  er i f|rste rekke dine taktiske og logiske evner som
+settes p} pr|ve.  Skal du utman|vrere robotene b|r du planlegge i
+god tid i forveien. Mye av hemmeligheten med spillet er } utnytte
+teleport- og super-zap-mekanismene riktig.
+
+
+ii) Batterier:
+
+Hvor mange batterier du har igjen  vises  p}  nederste  linje  p}
+skjermen. Tallet etter pluss-tegnet er batterier spart fra lavere
+niv}er. Ved starten av spillet f}r  du  ett  batteri.  Dersom  du
+klarer } spare dette, vil du f} to nye pr. niv}, slik at du neste
+gang starter med tre. Dersom du klarer } spare to av  disse  tre,
+vil du f} tre batterier pr. niv}. Flere nye batterier enn tre pr.
+niv} kan man ikke f}, uansett hvor mange man sparer.
+
+Batterier  kan  brukes til sikre teleporter  (F1),  eller  til  }
+superzappe  (F3).  N}r du har sluppet opp for batterier,  er  det
+fortsatt mulig } fors|ke } drive teleport-maskinen med sol-energi
+(F2).  Dessverre  produserer sol-panelene for svak spenning til }
+drive robot-detektorene.  "Alle hjems teleport-compagni"  skriver
+derfor   eksplisitt  p}  sin  garanti-seddel:   "Ved  drift  uten
+tilstrekkelig ladning i de av SELSKAPET godkjente  batteri-typer,
+fraskriver  SELSKAPET  seg  ethvert ansvar for  skade  som  m}tte
+oppst} p} KUNDE, KUNDEs katt og/eller deler herav, selv om skaden
+kan  direkte  tilbakef|res til mangelfull monitoring  av  destin-
+asjonsomr}de  grunnet begrenset funksjonalitet i utstyr levert av
+SELSKAPET.  Samme ansvarsbegrensning gj|res gjeldende dersom bat-
+terier innsettes i utstyret, eller dersom noe annet g}r galt."
+
+
+iii) Teleport-mekanismen:
+
+En  teleport er en mekanisme som flytter deg bort fra det  stedet
+p}  spillebrettet du befinner deg,  og til et tilfeldig  sted  p}
+spilleplanen.  Dersom  du  fortsatt har batterier igjen,  kan  du
+foreta  en "sikker" teleport (dette er en teleport der du  garan-
+tert  ikke lander  ved siden av en robot).  Uten batterier kan du
+lande hvorsomhelst.  En sikker teleport bruker opp ett batteri og
+tar ett trekk,  slik at etter at du har teleportet, vil resten av
+robotene fortsatt marsjere mot deg.
+
+P} niv} fem og h|yere kan du, dersom du mener det er trygt, velge
+} bruke en "vanlig" teleport i stedenfor en "sikker".  En  vanlig
+teleport forbruker ikke noe batteri.
+
+
+iv) Super-zap:
+
+For } gj|re en super-zap,  m} du ha batterier igjen. En super-zap
+omdanner  alle  roboter  (og eventuelle skraphauger) p}  de  }tte
+feltene  ved siden av deg til atomer.  De fordamper  fra  spille-
+brettet, og blir aldri sett igjen. En superzap bruker ett batteri
+og i likhet med teleport-mekanismen tar den ett trekk.
+
+
+v) Maksimering av score:
+
+Det er to m}ter } maksimere score p}:
+
+Den  f|rste  dreier seg om hvor mange poeng du f}r pr.  robot  du
+|delegger.  Dette  er  en funksjon av hvor mange  skraphauger  du
+klarte } lage p} forrige niv}. Jo flere skraphauger, jo mer poeng
+f}r du for hver robot du |delegger.
+
+Den andre m}ten du kan maksimere score p},  henger sammen med det
+antall  roboter du m|ter p} neste niv}.  Jo raskere du  gj|r  deg
+ferdig med ett niv},  desto f{rre roboter m|ter du p} neste niv}.
+Det  kan v{re fordelaktig } holde brettet relativt glissent p} de
+lavere  niv}ene,  slik  at du har muligheten til }  velge  vanlig
+teleport  i  steden for en sikker p} niv}  fem  og  oppover.  V{r
+oppmerksom  p} at "siste skanse" kommandoen (F12) bare teller som
+ett trekk, og f|lgelig er en viktig kommando for } holde antallet
+trekk nede. En "robotmester" vil kunne forutsi hvilke roboter som
+kommer til } kollidere, posisjonere seg slik at disse kollisjons-
+kandidatene dekker alle fire flanker,  trykke F12,  og sette  seg
+tilbake i stolen mens dramaet utspiller seg p} skjermen. Men pass
+p}:  feilberegner  du og trykker for tidlig p} F12,  blir du n|dt
+til } tegne service-avtale!
+
+Disse  to metodene for } maksimere score vil ofte v{re i konflikt
+med hverandre.  Et av de strategiske problemene spillerne m} l{re
+seg } takle i  ROBOT,  er } avgj|re n}r det l|nner  seg  }  bruke
+"siste skanse"-kommandoen,  og  n}r det l|nner seg } bruke ekstra
+trekk for } man|vrere en pen spredning av skraphaugene.
+
+
+vii) } gi seg mens leken er god.
+
+Du kan n}r som helst unnslippe og avslutte ved } trykke  F11.  Da
+beholder du alle poengene du har f}tt. Dersom du ikke vet n}r det
+er p} tide } slutte, og m} tegne service-avtale, mister du 25% av
+det  du  har  tjent.  Dersom du er i ferd med }  slippe  opp  for
+batterier,  og robotene st}r tett omkring deg, b|r du overveie om
+det ikke er lurest } ta kvelden med det du alt har tjent.
+
+
+RASK ROBOT:
+-----------
+
+N}r du re-installerer ROBOT med F16,  kan du velge mellom  "stan-
+dard" og "rask" versjon av spillet.  Du kan se hvilken versjon du
+spiller ved } se p} versjonsnummeret som kommer fram bl.a. n}r du
+ber om } f} listet toppscore-lista. Et versjons-nummer etterfulgt
+av  en "S" indikerer at ROBOT er installert for (og  topp-scorene
+er satt med) standard-versjonen.   En "R" betyr at du spiller den
+raske versjonen.
+
+Reglene for spillet er stort sett de samme for begge, men enkelte
+detaljer  er  endret for at rask ROBOT skal vare kortere og  v{re
+mer  stressende.  Disse endringene er i f|rste rekke beregnet  p}
+folk med d}rlig tid og YAP-generasjonen, og de fleste er enige om
+at  de ikke representerer noen forbedring av det originale  spil-
+let.  Den  mest aktuelle bruk av rask robot er  situasjoner  hvor
+flere vil spille,  og det er bare en Tiki-100 tilgjengelig. Fordi
+hvert spill varer relativt kort,  b|r en turnering kunne avvikles
+innen rimelig tid.
+
+Uansett, her er listen over "features" i rask ROBOT:
+
+* Du  m}  spare tre batterier fra lavere niv} for } begynne }  f}
+  tre  nye batterier pr.  niv} (i standard ROBOT holder  det  med
+  to).
+
+* I  standard  ROBOT  vil du h|re et pling dersom du  fors|ker  }
+  flytte rett inn i armene p} en ROBOT.  I rask ROBOT vil  bordet
+  (og roboten) fange.
+
+* Robotene  vil bevege seg av seg selv dersom du ikke har flyttet
+  etter en viss tid.  Tidsforsinkelsen er variabel, men du vil f}
+  en  advarsel  i form av et "pling" rett f|r  robotene  flytter.
+  Dette  plinget  vil v{re der,  sj|l om du skrur  av  alle  lyd-
+  effektene.
+
+* Dersom du trykker p} en ulovlig tast i rask ROBOT, vil robotene
+  flytte umiddelbart.  V{r  spesiellt oppmerksom  p}  forskjellen
+  mellom F1 (sikker teleport) og F2 (usikker teleport).    P}  de
+  f|rste fire brettene er F1 bare tillatt n}r  du  har  batterier
+  igjen, og F2 er bare tillatt n}r du er tom for batterier.
+
+* Listen  med  de  ti beste resultatene vil ikke  bli  lagret  p}
+  disken. Dersom du skal gjennomf|re en turnering med rask  ROBOT
+  i l|pet av en kveld,  b|r du ikke g} tilbake til TIKO:  Det vil
+  f|re  til  at  du  mister  hele  resultat-lista.   For  seri|st
+  turnerings-spill anbefales standard ROBOT.
+
+
+FILER:
+------
+
+0_LESMEG.TXT -- Denne filen.
+ROBOT.COM    -- Robot-programmet.
+ROBOT.HSC    -- 10 beste poengsummer (denne kan godt mangle).
+
+
+ADVARSEL:
+---------
+
+1) Dette spillet kan v{re vane-dannende.
+
+2) Fors|kene  p}  humor i beskrivelsen av spillets  scenario  vil
+   antakelig  bare  bli  forst}tt  av en  relativt  liten  gruppe
+   mennesker;  nemlig  folk som b}de er science-fiction  fans  og
+   data-entusiaster.  En unnskyldning til alle dere andre for den
+   noe spesielle humoren:  Hopp over innledningen; alt du trenger
+   }  vite  for } spille ROBOT,  er at du ikke b|r bli fanget  av
+   dem.
+
+..EOF
